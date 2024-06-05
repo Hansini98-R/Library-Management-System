@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Issue Book</h2>
+<form method="POST" action="{{ url_for('issue') }}">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.book_id.label }}<br>
+        {{ form.book_id(size=32) }}<br>
+        {{ form.student_id.label }}<br>
+        {{ form.student_id(size=32) }}<br>
+        {{ form.submit() }}
+    </p>
+</form>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Manage Students</h2>
+<form method="POST" action="{{ url_for('students') }}">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.name.label }}<br>
+        {{ form.name(size=32) }}<br>
+        {{ form.email.label }}<br>
+        {{ form.email(size=32) }}<br>
+        {{ form.submit() }}
+    </p>
+</form>
+<h3>Students List</h3>
+<ul>
+    {% for student in students %}
+    <li>{{ student.name }} - {{ student.email }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
